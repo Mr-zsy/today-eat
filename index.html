@@ -28,17 +28,29 @@
     <h1>今天吃：</h1>
     <h2 id="result"></h2>
     <button onclick="random()">Random</button>
+    <br>
+    <h3 id='pool'>
+    </h3>
   </div>
 </body>
 <script>
-  function random() {
-    // @园园补充
+  // @园园补充
     const list = [
         '麻辣烫',
         'soho食堂',
         '首开食堂',
         '南京小笼包',
+        '麻辣香锅',
+        '大盘鸡',
+        '释面',
+        '烤鱼',
+        '一面一串',
+        '吉野家',
+        '驴肉火烧',
+        
     ];
+  document.querySelector('#pool').innerText = list.join('、');
+  function random() {
     let testNum = 30;
     const result = document.querySelector('#result');
     let timer = null;
