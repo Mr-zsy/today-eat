@@ -68,7 +68,7 @@
     let testNum = 30;
     const result = document.querySelector('#result');
     let timer = null;
-    let speed = 300;
+    let speed = 200;
     let speedFlag = 'up';
     
     result.style.color = 'black';
@@ -92,14 +92,14 @@
       result.innerText = res;
       testNum--;
       if (speedFlag === 'up' && speed > 10) {
-        speed -= 100;
+        speed -= 10;
         if (speed === 10) {
           speedFlag = 'down';
         }
       }
-      if (speedFlag === 'down' && speed > 300) {
+      if (speedFlag === 'down' && speed > 200) {
         speed += 10;
-        if (speed === 300) {
+        if (speed === 200) {
           speedFlag = 'down';
         }
       }
