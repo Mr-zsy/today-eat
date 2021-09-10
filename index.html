@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What to eat today?</title>
+  <style>
+    .wrap {
+      width: 600px;
+      height: 300px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .result {
+      margin: 0 30px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>今天吃：</h1>
+    <h2 id="result"></h2>
+    <button onclick="random()">Random</button>
+  </div>
+</body>
+<script>
+  function random() {
+    // @园园补充
+    const list = [
+        '麻辣烫',
+        'soho食堂',
+        '首开食堂',
+        '南京小笼包',
+    ];
+    let testNum = 30;
+    const result = document.querySelector('#result');
+    let timer = null;
+    let speed = 300;
+    let speedFlag = 'up';
+
+    timer = setInterval(() => {
+      if (testNum < 0) {
+        clearInterval(timer);
+        result.style.color = 'red';
+        result.style.fontSize = '50px';
+        return;
+      }
+      const randomIndex = (Math.random() * (list.length - 1)).toFixed(0);
+      const res = list[randomIndex];
+      result.innerText = res;
+      testNum--;
+      if (speedFlag === 'up' && speed > 10) {
+        speed -= 100;
+        if (speed === 10) {
+          speedFlag = 'down';
+        }
+      }
+      if (speedFlag === 'down' && speed > 300) {
+        speed += 10;
+        if (speed === 300) {
+          speedFlag = 'down';
+        }
+      }
+    }, speed)    
+  }
+</script>
+</html>
