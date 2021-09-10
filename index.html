@@ -7,7 +7,7 @@
   <title>What to eat today?</title>
   <style>
     .wrap {
-      width: 600px;
+      width: 800px;
       height: 300px;
       position: absolute;
       top: 50%;
@@ -19,18 +19,22 @@
     }
     #result {
       margin: 0 30px;
+      min-width: 200px;
     }
     #pool {
       width: 700px;
-      display: block;
       text-align: center;
       margin: 200px auto 100px;
     }
   </style>
 </head>
 <body>
-  <h3 id='pool'>
+  <div  id='pool'>
+    <h3>备选池：</h3>
+    <h3>
     </h3>
+  </div>
+  
   <div class="wrap">
     <h1>今天吃：</h1>
     <h2 id="result"></h2>
