@@ -70,12 +70,18 @@
     
     result.style.color = 'black';
     result.style.fontSize = '28px';
+    
+    const btn = document.querySelector('button');
+    btn.disabled = true;
+    btn.innerText = 'Waitting';
 
     timer = setInterval(() => {
       if (testNum < 0) {
         clearInterval(timer);
         result.style.color = 'red';
         result.style.fontSize = '50px';
+        btn.disabled = false;
+        btn.innerText = 'Random';
         return;
       }
       const randomIndex = (Math.random() * (list.length - 1)).toFixed(0);
