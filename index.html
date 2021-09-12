@@ -48,22 +48,37 @@
   </div>
 </body>
 <script>
-  // @园园补充
-    const list = [
-        '麻辣烫',
-        'soho食堂',
-        '首开食堂',
-        '南京小笼包',
-        '麻辣香锅',
-        '大盘鸡',
-        '释面',
-        '烤鱼',
-        '一面一串',
-        '吉野家',
-        '驴肉火烧',
-        
-    ];
-  document.querySelector('#pool').innerText = list.join('、');
+  // 1倍概率
+  const lowRateList = [
+    '烤鱼',
+    '羊蝎子'
+  ];
+  
+  // 2倍概率
+  const middleRateList = [
+    '麻辣香锅',
+  ];
+  
+  // 3倍概率
+  const highRateList = [
+    'soho食堂',
+    '首开食堂',
+    '南京小笼包',
+    '一面一串',
+    '吉野家',
+    '驴肉火烧',
+    '释面',
+    '麻辣烫',
+  ];
+  
+  
+  const resultList = [...highRateList, ...middleRateList, ...lowRateList, ...highRateList, ...middleRateList, ...highRateList].sort(
+    function() {
+      return Math.random() - 0.5;
+    }
+  )
+  
+  document.querySelector('#pool').innerText = resultList.join('、');
   function random() {
     let testNum = 30;
     const result = document.querySelector('#result');
@@ -87,8 +102,8 @@
         btn.innerText = 'Random';
         return;
       }
-      const randomIndex = (Math.random() * (list.length - 1)).toFixed(0);
-      const res = list[randomIndex];
+      const randomIndex = (Math.random() * (resultList.length - 1)).toFixed(0);
+      const res = resultList[randomIndex];
       result.innerText = res;
       testNum--;
       if (speedFlag === 'up' && speed > 10) {
