@@ -78,7 +78,7 @@
     }
   )
   
-  document.querySelector('#pool').innerText = resultList.join('、');
+  document.querySelector('#pool').innerText =  [...new Set(resultList)].join('、');
   function random() {
     let testNum = 30;
     const result = document.querySelector('#result');
